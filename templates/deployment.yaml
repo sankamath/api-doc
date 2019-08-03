@@ -1,0 +1,21 @@
+kind: "DeploymentConfig"
+apiVersion: "v1"
+metadata:
+  name: "cat-api-doc"
+spec:
+  template:
+    metadata:
+      labels:
+        name: "cat-api-doc"
+    spec:
+      containers:
+        - name: "redoc"
+          image: "redocly/redoc"
+          ports:
+            - containerPort: 80
+              protocol: "TCP"
+  replicas: 1
+  selector:
+    name: "cat-api-doc"
+  strategy:
+    type: "Rolling"

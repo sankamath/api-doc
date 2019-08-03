@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cat-api-doc
+spec:
+  selector:
+    cat-api-doc: default
+  ports:
+  - nodePort: 80
+    port: 80
+    protocol: TCP
+    targetPort: 80
